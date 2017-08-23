@@ -18,4 +18,8 @@ public class TopicService
   public List<Topic> getAllTopics() {
     return topics;
   }
+
+  public Topic getTopic(Integer id){
+    return topics.stream().filter(t -> t.getId() == id).findFirst().get();
+  }
 }
