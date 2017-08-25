@@ -17,20 +17,29 @@ public class TopicController {
   @Autowired
   private TopicService topicService;
 
-  @RequestMapping("/topics")
+  @RequestMapping(value = "/topics", method = RequestMethod.GET)
   public List<Topic> getAllTopics(){
     return topicService.getAllTopics();
   }
 
-  @RequestMapping("/topics/{id}")
+  @RequestMapping(value = "/topics/{id}", method = RequestMethod.GET)
   public Topic getTopic(@PathVariable("id") Integer id){
     return topicService.getTopic(id);
   }
 
-  @RequestMapping(method = RequestMethod.POST, value = "/topics")
+  @RequestMapping(value = "/topics", method = RequestMethod.POST)
   public void addTopic(@RequestBody Topic topic){
     System.out.println("The topic to be added is : "+topic);
     topicService.addTopic(topic);
+  }
+
+  @RequestMapping(value = "/topics/{id}", method = RequestMethod.PUT)
+  public void updateTopic(@RequestBody Topic topic, @PathVariable("id") Integer id){
+    topicService.updateTopic(id, topic);
+  }
+  @RequestMapping(value = "/topics/{id}", method = RequestMethod.DELETE)
+  public void deleteTopic(@PathVariable("id") Integer id){
+    topicService.deleteTopic(id);
   }
 
 }
