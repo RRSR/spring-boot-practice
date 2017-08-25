@@ -12,6 +12,9 @@ public class Topic {
     this.description = description;
   }
 
+  public Topic() {
+  }
+
   public int getId() {
     return id;
   }
