@@ -16,9 +16,9 @@ public class CourseController {
   @Autowired
   private CourseService courseService;
 
-  @RequestMapping(value = "/courses", method = RequestMethod.GET)
-  public List<Course> getAllCourses(){
-    return courseService.getAllCourses();
+  @RequestMapping(value = "/topic/{id}/courses", method = RequestMethod.GET)
+  public List<Course> getAllCourses(@PathVariable("id")Integer id){
+    return courseService.getAllCourses(id);
   }
 
   @RequestMapping(value = "/courses/{id}", method = RequestMethod.GET)
@@ -26,9 +26,9 @@ public class CourseController {
     return courseService.getCourse(id);
   }
 
-  @RequestMapping(value = "/courses", method = RequestMethod.POST)
-  public void addCourse(@RequestBody Course course){
-    courseService.addCourse(course);
+  @RequestMapping(value = "/topic/{id}/courses", method = RequestMethod.POST)
+  public void addCourse(@PathVariable("id") Integer id, @RequestBody Course course){
+    courseService.addCourse(id, course);
   }
 
   @RequestMapping(value = "/courses", method = RequestMethod.PUT)

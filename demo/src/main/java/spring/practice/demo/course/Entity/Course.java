@@ -2,6 +2,7 @@ package spring.practice.demo.course.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import spring.practice.demo.topic.Entity.Topic;
 
 @Entity
@@ -11,7 +12,8 @@ public class Course {
   private int id;
   private String name;
   private String description;
-  private Integer topicId;
+  @ManyToOne
+  private Topic topic;
 
   public Course(int id, String name, String description) {
     this.id = id;
@@ -46,11 +48,11 @@ public class Course {
     this.description = description;
   }
 
-  public Integer getTopicId() {
-    return topicId;
+  public Topic getTopic() {
+    return topic;
   }
 
-  public void setTopicId(Integer topicId) {
-    this.topicId = topicId;
+  public void setTopic(Topic topic) {
+    this.topic = topic;
   }
 }
