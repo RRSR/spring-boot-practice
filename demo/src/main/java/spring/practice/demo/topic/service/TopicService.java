@@ -1,11 +1,10 @@
 package spring.practice.demo.topic.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spring.practice.demo.topic.Topic;
+import spring.practice.demo.topic.Entity.Topic;
 import spring.practice.demo.topic.repositories.TopicRepository;
 
 @Service
