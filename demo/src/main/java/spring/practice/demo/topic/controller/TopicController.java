@@ -28,7 +28,6 @@ public class TopicController {
 
   @RequestMapping(value = "/topics", method = RequestMethod.POST)
   public void addTopic(@RequestBody Topic topic){
-    System.out.println("The topic to be added is : "+topic);
     topicService.addTopic(topic);
   }
 
